@@ -15,12 +15,13 @@ echo "all2"
 rm -rf {LICENSE,README,README.md}
 rm -rf ./*/{LICENSE,README,README.md}
 rm -rf ./*/*/{LICENSE,README,README.md}
+mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
 
 
-# LEDE源码通用diy1.sh文件
+# LEDE源码通用diy1.sh文件（除了openwrt机型文件夹）
 
 Diy_lede() {
 echo "LEDE源码自定义1"
@@ -41,11 +42,10 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
 
-# LEDE源码通用diy2.sh文件
+# LEDE源码通用diy2.sh文件（openwrt机型文件夹也使用）
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
-mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
@@ -55,7 +55,7 @@ mkdir -p files/usr/bin/AdGuardHome/data
 ################################################################################################################
 
 
-# LIENOL源码通用diy1.sh文件
+# LIENOL源码通用diy1.sh文件（除了openwrt机型文件夹）
 
 Diy_lienol() {
 echo "LIENOL源码自定义1"
@@ -77,11 +77,10 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
 
-# LIENOL源码通用diy2.sh文件
+# LIENOL源码通用diy2.sh文件（openwrt机型文件夹也使用）
 
 Diy_lienol2() {
 echo "LIENOL源码自定义2"
-mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
@@ -91,7 +90,7 @@ mkdir -p files/usr/bin/AdGuardHome/data
 ################################################################################################################
 
 
-# 天灵源码通用diy1.sh文件
+# 天灵源码通用diy1.sh文件（除了openwrt机型文件夹）
 
 Diy_immortalwrt() {
 echo "天灵源码自定义1"
@@ -106,11 +105,10 @@ chmod +x package/base-files/files/bin/* ./
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 }
 
-# 天灵源码通用diy2.sh文件
+# 天灵源码通用diy2.sh文件（openwrt机型文件夹也使用）
 
 Diy_immortalwrt2() {
 echo "天灵源码自定义2"
-mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
