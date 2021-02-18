@@ -96,7 +96,7 @@ Diy_immortalwrt() {
 echo "天灵源码自定义1"
 rm -rf package/lienol/luci-app-timecontrol
 rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3,luci-app-adguardhome}
-rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
+rm -rf package/lean/{luci-theme-argon}
 
 git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
 svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate package/base-files/files/bin
