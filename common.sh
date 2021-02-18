@@ -35,8 +35,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app
 git clone https://github.com/jerrykuku/luci-app-vssr package/danshui/luci-app-vssr
 git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-openclash
 
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
+git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -64,13 +64,13 @@ git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-p
 svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate package/base-files/files/bin
 chmod +x package/base-files/files/bin/* ./
 
-git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
-git clone https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
+git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app-passwall
+git clone https://github.com/jerrykuku/luci-app-vssr package/danshui/luci-app-vssr
+git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-openclash
 
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
+git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -99,8 +99,8 @@ git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-p
 svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate package/base-files/files/bin
 chmod +x package/base-files/files/bin/* ./
 
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
+git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 }
 
 # 天灵源码通用diy2.sh文件
