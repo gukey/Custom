@@ -15,6 +15,7 @@ echo "all2"
 rm -rf {LICENSE,README,README.md}
 rm -rf ./*/{LICENSE,README,README.md}
 rm -rf ./*/*/{LICENSE,README,README.md}
+mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
