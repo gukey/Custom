@@ -15,7 +15,6 @@ echo "all2"
 rm -rf {LICENSE,README,README.md}
 rm -rf ./*/{LICENSE,README,README.md}
 rm -rf ./*/*/{LICENSE,README,README.md}
-mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
@@ -46,6 +45,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
+mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
@@ -81,6 +81,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lienol2() {
 echo "LIENOL源码自定义2"
+mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
@@ -109,6 +110,7 @@ git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app
 
 Diy_immortalwrt2() {
 echo "天灵源码自定义2"
+mkdir -p files/usr/bin/AdGuardHome/data
 }
 
 ################################################################################################################
