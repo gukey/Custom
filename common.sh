@@ -59,6 +59,7 @@ echo "LEDE源码自定义2"
 
 Diy_lienol() {
 echo "LIENOL源码自定义1"
+rm -rf package/diy/luci-app-adguardhome
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 
 git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
@@ -94,7 +95,8 @@ echo "LIENOL源码自定义2"
 Diy_immortalwrt() {
 echo "天灵源码自定义1"
 rm -rf package/lienol/luci-app-timecontrol
-rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3}
+rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3,luci-app-adguardhome}
+rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 
 git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
 svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate package/base-files/files/bin
