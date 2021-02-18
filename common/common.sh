@@ -133,5 +133,6 @@ echo "编译ssr plus的时候需要选择v2ray-plugin的，在diy-1.sh或者diy-
 echo "v2ray-plugin问题已修复"
 echo "2021年2月17号说明，大家如果编译project源码出现libncursesw6错误的话，不要慌，这个是上游出问题，等修复"
 echo "libncursesw6错误已修复"
-echo "增加passwall 在diy-1.sh里面加入 git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall"
+echo "增加passwall 在diy-1.sh里面加入 《git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall》"
+echo "#"
 }
