@@ -38,7 +38,6 @@ git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-opencl
 git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -73,7 +72,6 @@ git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-opencl
 git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -103,7 +101,6 @@ svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate pack
 chmod +x package/base-files/files/bin/* ./
 
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb package/danshui/lua-maxminddb
 }
 
 # 天灵源码通用diy2.sh文件
