@@ -133,13 +133,7 @@ devices=("phicomm-n1" "rk3328" "s9xxx" "vplus")
 Diy_notice() {
 echo "#"
 echo "《公告内容》"
-echo "各地开学时间陆续确定:黑龙江最晚"
-echo "Google 的免费翻译服务可提供简体中文和另外100 多种字"
-echo "源码已增加所以梯子插件"
-echo "编译ssr plus的时候需要选择v2ray-plugin的，在diy-1.sh或者diy-2.sh里面增加一下命令就好了"
-echo "v2ray-plugin问题已修复"
-echo "2021年2月17号说明，大家如果编译project源码出现libncursesw6错误的话，不要慌，这个是上游出问题，等修复"
-echo "libncursesw6错误已修复"
-echo "增加passwall 在diy-1.sh里面加入 《git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall》"
+echo "祝大家新年快乐、生活愉快！"
+echo "使用中有疑问的可以加入电报群，在群里跟群友交流"
 echo "#"
 }
