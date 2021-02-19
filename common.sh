@@ -2,16 +2,16 @@
 
 Diy_all() {
 echo "all"
-git clone https://github.com/openwrt-dev/po2lmo.git
-pushd po2lmo
-make && sudo make install
-popd
 }
 
 # 全脚本源码通用diy2.sh文件
 
 Diy_all2() {
 echo "all2"
+git clone https://github.com/openwrt-dev/po2lmo.git
+pushd po2lmo
+make && sudo make install
+popd
 rm -rf {LICENSE,README,README.md}
 rm -rf ./*/{LICENSE,README,README.md}
 rm -rf ./*/*/{LICENSE,README,README.md}
