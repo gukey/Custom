@@ -104,7 +104,6 @@ chmod +x package/base-files/files/bin/* ./
 
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shadowsocksr-libev package/shadowsocksr-libev
 }
 
 # 天灵源码通用diy2.sh文件（openwrt机型文件夹也使用）
