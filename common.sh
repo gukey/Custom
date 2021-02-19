@@ -46,6 +46,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
+sed -i 's/(ver.distversion)%>/(ver.distversion)%> <!--/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) !-->/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 }
 
 ################################################################################################################
@@ -81,6 +83,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lienol2() {
 echo "LIENOL源码自定义2"
+sed -i 's/(ver.distversion)%>/(ver.distversion)%> <!--/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) !-->/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 }
 
 ################################################################################################################
