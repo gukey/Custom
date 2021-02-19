@@ -46,8 +46,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
-sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!\--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/lean/default-settings/files/zzz-default-settings
-sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!\-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/lean/default-settings/files/zzz-default-settings
+sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/lean/default-settings/files/zzz-default-settings
+sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/lean/default-settings/files/zzz-default-settings
 }
 
 ################################################################################################################
@@ -61,6 +61,8 @@ sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!\-->/g' /usr/
 
 Diy_lienol() {
 echo "LIENOL源码自定义1"
+sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/default-settings/files/zzz-default-settings
+sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/default-settings/files/zzz-default-settings
 rm -rf package/diy/luci-app-adguardhome
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 
@@ -83,8 +85,6 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lienol2() {
 echo "LIENOL源码自定义2"
-sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!\--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/default-settings/files/zzz-default-settings
-sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!\-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' package/default-settings/files/zzz-default-settings
 }
 
 ################################################################################################################
