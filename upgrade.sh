@@ -25,10 +25,14 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
-        if [[ UPLOAD_BIN_DIR="false" ]]; then
+        if [[ UPLOAD_BIN_DIR="false"|UPLOAD_CONFIG="false"|UPLOAD_FIRMWARE="false" ]]; then
 		echo "上传BIN: 关闭"
-	elif [[ UPLOAD_BIN_DIR="true" ]]; then
-		echo "上传BIN: 开启"
+		echo "上传CONFIG: 关闭"
+		echo "上传FIRMWARE: 关闭"
+	elif [[ UPLOAD_BIN_DIR="true"|UPLOAD_CONFIG="true"|UPLOAD_FIRMWARE="true" ]]; then
+		echo "上传BIN: 开啊"
+		echo "上传CONFIG: 开启"
+		echo "上传FIRMWARE: 开启"
 	fi
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
 	[[ -z "${Author}" ]] && Author="Unknown"
