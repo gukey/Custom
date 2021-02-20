@@ -1,5 +1,5 @@
 Diy_Core() {
-	source "${marget}/settings.ini"
+	source "${GITHUB_WORKSPACE}/build/${marget}/settings.ini"
 	echo "Author=${Author}"
 	echo "Default_Device=${Default_Device}"
 	echo "Updete_firmware=${Updete_firmware}"
