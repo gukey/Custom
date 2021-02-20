@@ -8,7 +8,6 @@ Diy_Core() {
 }
 
 GET_TARGET_INFO() {
-	Diy_Core
 	[ -f ${GITHUB_WORKSPACE}/Openwrt.info ] && . ${GITHUB_WORKSPACE}/Openwrt.info
 	Openwrt_Version="${Compile_Date}"
 	DEVICE=$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)
@@ -32,7 +31,6 @@ Diy_Part1() {
 }
 
 Diy_Part2() {
-	Diy_Core
 	GET_TARGET_INFO
 	AutoUpdate_Version="$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')"
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
@@ -50,7 +48,6 @@ Diy_Part2() {
 }
 
 Diy_Part3() {
-	Diy_Core
 	GET_TARGET_INFO
 	Default_Firmware="${Updete_firmware}"
 	AutoBuild_Firmware="openwrt-${Source}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}${Extension}"
