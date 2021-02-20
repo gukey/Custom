@@ -36,9 +36,9 @@ Diy_Part2() {
 	echo "仓库链接: ${Github_Repo}"
 	echo "固件作者: ${Author}"
 	echo "固件版本: Firmware-${Openwrt_Version}"
-        if [[ UPLOAD_BIN_DIR="false" ]]; then
+        if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
 		echo "上传BIN文件夹: 关闭"
-	elif [[ UPLOAD_BIN_DIR="true" ]]; then
+	elif [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
 		echo "上传BIN文件夹: 开启"
 	fi
         if [[ UPLOAD_CONFIG="false" ]]; then
