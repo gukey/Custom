@@ -29,7 +29,7 @@ Diy_Part2() {
 	[[ -z "${Author}" ]] && Author="Unknown"
 	echo "Author: ${Author}"
 	echo "Openwrt Version: ${Openwrt_Version}"
-	echo "Source: ${ZUOZHE}"
+	echo "Source: ${NAME2}"
 	echo "Router: ${TARGET_PROFILE}"
 	echo "Github: ${Github_Repo}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
