@@ -1,5 +1,5 @@
 Diy_Core() {
-	source "${GITHUB_WORKSPACE}/build/${{matrix.target}}/settings.ini"
+	source "${UPDATE}/settings.ini"
 	echo "Author=${Author}"
 	echo "Default_Device=${Default_Device}"
 	echo "Updete_firmware=${Updete_firmware}"
