@@ -25,15 +25,6 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
-        if [[ UPLOAD_BIN_DIR="false"|UPLOAD_CONFIG="false"|UPLOAD_FIRMWARE="false" ]]; then
-		echo "上传BIN: 关闭"
-		echo "上传CONFIG: 关闭"
-		echo "上传FIRMWARE: 关闭"
-	elif [[ UPLOAD_BIN_DIR="true"|UPLOAD_CONFIG="true"|UPLOAD_FIRMWARE="true" ]]; then
-		echo "上传BIN: 开啊"
-		echo "上传CONFIG: 开启"
-		echo "上传FIRMWARE: 开启"
-	fi
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
 	[[ -z "${Author}" ]] && Author="Unknown"
 	echo "插件版本: ${AutoUpdate_Version}"
@@ -45,6 +36,41 @@ Diy_Part2() {
 	echo "仓库链接: ${Github_Repo}"
 	echo "固件作者: ${Author}"
 	echo "固件版本: Firmware-${Openwrt_Version}"
+        if [[ UPLOAD_BIN_DIR="false" ]]; then
+		echo "上传BIN文件夹: 关闭"
+	elif [[ UPLOAD_BIN_DIR="true" ]]; then
+		echo "上传BIN文件夹: 开启"
+	fi
+        if [[ UPLOAD_CONFIG="false" ]]; then
+		echo "上传配置文件: 关闭"
+	elif [[ UPLOAD_CONFIG="true" ]]; then
+		echo "上传配置文件: 开启"
+	fi
+        if [[ UPLOAD_FIRMWARE="false" ]]; then
+		echo "上传固件: 关闭"
+	elif [[ UPLOAD_FIRMWARE="true" ]]; then
+		echo "上传固件: 开启"
+	fi
+        if [[ UPLOAD_COWTRANSFER="false" ]]; then
+		echo "上传固件到到【奶牛快传】和【WETRANSFER】: 关闭"
+	elif [[ UPLOAD_COWTRANSFER="true" ]]; then
+		echo "上传固件到到【奶牛快传】和【WETRANSFER】: 开启"
+	fi
+        if [[ UPLOAD_RELEASE="false" ]]; then
+		echo "发布固件: 关闭"
+	elif [[ UPLOAD_RELEASE="true" ]]; then
+		echo "发布固件: 开启"
+	fi
+        if [[ SERVERCHAN_SCKEY="false" ]]; then
+		echo "微信通知: 关闭"
+	elif [[ SERVERCHAN_SCKEY="true" ]]; then
+		echo "微信通知: 开启"
+	fi
+        if [[ REGULAR_UPDATE="false" ]]; then
+		echo "把定时自动更新编译进固件: 关闭"
+	elif [[ REGULAR_UPDATE="true" ]]; then
+		echo "把定时自动更新编译进固件: 开启"
+	fi
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
