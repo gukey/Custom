@@ -2,11 +2,11 @@
 
 Diy_all() {
 echo "all"
-if [ ${matrix} == "Lede_x86_64" ]; then
+if [ ${Modelfile} == "Lede_x86_64" ]; then
 echo "11111111111111"
-elif [ ${matrix} == "Lienol_x86_64" ]; then
+elif [ ${Modelfile} == "Lienol_x86_64" ]; then
 echo "2222222222222221"
-elif [ ${matrix} == "Project_x86_64" ]; then
+elif [ ${Modelfile} == "Project_x86_64" ]; then
 echo "333333333333333333"
 fi
 }
