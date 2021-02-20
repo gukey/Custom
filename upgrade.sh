@@ -10,7 +10,6 @@ GET_TARGET_INFO() {
 	fi
 	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="${Default_Device}"
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
-	Github_zh="%D,%S,%Ds,%a,%A"
 }
 
 Diy_Part1() {
