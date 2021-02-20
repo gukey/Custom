@@ -34,6 +34,7 @@ Diy_Part2() {
 	echo "固件后缀: ${Extension}"
 	echo "仓库链接: ${Github_Repo}"
 	echo "固件作者: ${Author}"
+	echo "固件版本: Firmware-${Openwrt_Version}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
