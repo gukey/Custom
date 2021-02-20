@@ -1,11 +1,3 @@
-Diy_Core() {
-	source "${GITHUB_WORKSPACE}/build/${marget}/settings.ini"
-	echo "Author=${Author}"
-	echo "Default_Device=${Default_Device}"
-	echo "Updete_firmware=${Updete_firmware}"
-	echo "Extension=${Extension}"
-}
-
 GET_TARGET_INFO() {
 	[ -f ${GITHUB_WORKSPACE}/Openwrt.info ] && . ${GITHUB_WORKSPACE}/Openwrt.info
 	Openwrt_Version="${Compile_Date}"
