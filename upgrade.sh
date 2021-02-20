@@ -4,7 +4,6 @@ Diy_Core() {
 	echo "Default_Device=${Default_Device}"
 	echo "Updete_firmware=${Updete_firmware}"
 	echo "Extension=${Extension}"
-	echo "Source=${Source}"
 }
 
 GET_TARGET_INFO() {
@@ -38,7 +37,7 @@ Diy_Part2() {
 	[[ -z "${Author}" ]] && Author="Unknown"
 	echo "Author: ${Author}"
 	echo "Openwrt Version: ${Openwrt_Version}"
-	echo "Source: ${Source}"
+	echo "Source: ${ZUOZHE}"
 	echo "Router: ${TARGET_PROFILE}"
 	echo "Github: ${Github_Repo}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
