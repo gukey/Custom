@@ -9,6 +9,7 @@ GET_TARGET_INFO() {
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 	fi
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
+	AutoUpdate_Version="$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')"
 }
 
 Diy_Part1() {
@@ -22,11 +23,10 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
-	AutoUpdate_Version="$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')"
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
 	echo "AutoUpdate Version: ${AutoUpdate_Version}"
 	[[ -z "${Author}" ]] && Author="Unknown"
-	echo "插件版本: ${Openwrt_Version}"
+	echo "插件版本: ${AutoUpdate_Version}"
 	echo "编译源码: ${Source}"
 	echo "源码作者: ${ZUOZHE}"
 	echo "机子型号: ${TARGET_PROFILE}"
