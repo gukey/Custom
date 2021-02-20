@@ -10,8 +10,7 @@ GET_TARGET_INFO() {
 	fi
 	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="${Default_Device}"
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
-	Github_zh="$(grep "[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
-	Github_hao="$(grep "[a-zA]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
+	Github_zh="%D,%S,%Ds,%a,%A"
 }
 
 Diy_Part1() {
@@ -35,7 +34,6 @@ Diy_Part2() {
 	echo "Router: ${TARGET_PROFILE}"
 	echo "Github: ${Github_Repo}"
 	echo "Github1: ${Github_zh}"
-	echo "Github2: ${Github_hao}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
