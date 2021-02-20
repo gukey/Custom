@@ -25,6 +25,11 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
+        if [[ UPLOAD_BIN_DIR="false" ]]; then
+		echo "上传BIN: 关闭"
+	elif [[ UPLOAD_BIN_DIR="true" ]]; then
+		echo "上传BIN: 开启"
+	fi
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
 	[[ -z "${Author}" ]] && Author="Unknown"
 	echo "插件版本: ${AutoUpdate_Version}"
