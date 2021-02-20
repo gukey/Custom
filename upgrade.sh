@@ -35,7 +35,7 @@ Diy_Part2() {
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
-	echo "${RISE}" >> package/base-files/files/etc/openwrt_info
+	echo "${Source}" >> package/base-files/files/etc/openwrt_info
 }
 
 Diy_Part3() {
