@@ -1,14 +1,9 @@
+# 机型文件=${Modelfile}
+
 # 全脚本源码通用diy.sh文件
 
 Diy_all() {
 echo "all"
-if [ ${Modelfile} == "Lede_openwrt" ]; then
-echo "11111111111111"
-elif [ ${Modelfile} == "Lienol_x86_64" ]; then
-echo "2222222222222221"
-elif [ ${Modelfile} == "Project_x86_64" ]; then
-echo "333333333333333333"
-fi
 }
 
 # 全脚本源码通用diy2.sh文件
