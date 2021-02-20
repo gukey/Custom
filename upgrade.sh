@@ -26,17 +26,16 @@ Diy_Part1() {
 Diy_Part2() {
 	GET_TARGET_INFO
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
-	echo "AutoUpdate Version: ${AutoUpdate_Version}"
 	[[ -z "${Author}" ]] && Author="Unknown"
-	echo "	插件版本: ${AutoUpdate_Version}"
-	echo "	编译源码: ${Source}"
-	echo "	源码作者: ${ZUOZHE}"
-	echo "	机子型号: ${TARGET_PROFILE}"
-	echo "	固件名字: ${Updete_firmware}"
-	echo "	固件后缀: ${Firmware_sfx}"
-	echo "	仓库链接: ${Github_Repo}"
-	echo "	固件作者: ${Author}"
-	echo "	固件版本: Firmware-${Openwrt_Version}"
+	echo "插件版本: ${AutoUpdate_Version}"
+	echo "编译源码: ${Source}"
+	echo "源码作者: ${ZUOZHE}"
+	echo "机子型号: ${TARGET_PROFILE}"
+	echo "固件名字: ${Updete_firmware}"
+	echo "固件后缀: ${Firmware_sfx}"
+	echo "仓库链接: ${Github_Repo}"
+	echo "固件作者: ${Author}"
+	echo "固件版本: Firmware-${Openwrt_Version}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
