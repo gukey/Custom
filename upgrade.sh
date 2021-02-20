@@ -78,9 +78,6 @@ Diy_Part2() {
 }
 
 Diy_Part02() {
-	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
-	[[ -z "${Author}" ]] && Author="Unknown"
-	echo "插件版本: ${AutoUpdate_Version}"
 	echo "编译源码: ${Source}"
 	echo "源码作者: ${ZUOZHE}"
 	echo "机子型号: ${TARGET_PROFILE}"
