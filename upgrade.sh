@@ -36,14 +36,14 @@ Diy_Part2() {
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
-	echo "${Source}" >> package/base-files/files/etc/openwrt_info
+	echo "${RISE}" >> package/base-files/files/etc/openwrt_info
 }
 
 Diy_Part3() {
 	GET_TARGET_INFO
 	Default_Firmware="${Updete_firmware}"
-	AutoBuild_Firmware="openwrt-${Source}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}${Extension}"
-	AutoBuild_Detail="openwrt-${Source}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}.detail"
+	AutoBuild_Firmware="openwrt-${RISE}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}${Extension}"
+	AutoBuild_Detail="openwrt-${RISE}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}.detail"
 	Mkdir bin/Firmware
 	echo "Firmware: ${AutoBuild_Firmware}"
 	cp -f bin/targets/*/*/*"${Default_Firmware}" bin/Firmware/"${AutoBuild_Firmware}"
