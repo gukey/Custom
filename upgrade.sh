@@ -32,7 +32,6 @@ Diy_Part2() {
 	echo "Source: ${RISE}"
 	echo "Router: ${TARGET_PROFILE}"
 	echo "Github: ${Github_Repo}"
-	echo "Github1: ${Github_zh}"
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
