@@ -2,11 +2,11 @@
 
 Diy_all() {
 echo "all"
-if [ ${marget} == "Lede_x86_64" ]; then
+if [ ${{matrix.target}} == "Lede_x86_64" ]; then
 echo "11111111111111"
-elif [ ${marget} == "Lienol_x86_64" ]; then
+elif [ ${{matrix.target}} == "Lienol_x86_64" ]; then
 echo "2222222222222221"
-elif [ ${marget} == "Project_x86_64" ]; then
+elif [ ${{matrix.target}} == "Project_x86_64" ]; then
 echo "333333333333333333"
 fi
 }
