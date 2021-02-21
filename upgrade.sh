@@ -13,14 +13,18 @@ GET_TARGET_INFO() {
 	if [[ "${DEVICEC}" == "x86" ]]; then
 		Firmware_sfx=".img.gz"
 	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
-		Up_Firmware="phicomm-k3-squashfs.trx"
 		Firmware_sfx=".trx"
 	elif [[ "${TARGET_PROFILE}" == "d-team_newifi-d2" ]]; then
-		Up_Firmware="d-team_newifi-d2-squashfs-sysupgrade.bin"
 		Firmware_sfx=".bin"
 	else
-		Up_Firmware="${Updete_firmware}"
 		Firmware_sfx="${Extension}"
+	fi
+	if [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
+		Up_Firmware="phicomm-k3-squashfs.trx"
+	elif [[ "${TARGET_PROFILE}" == "d-team_newifi-d2" ]]; then
+		Up_Firmware="d-team_newifi-d2-squashfs-sysupgrade.bin"
+	else
+		Up_Firmware="${Updete_firmware}"
 	fi
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
 	AutoUpdate_Version="$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')"
