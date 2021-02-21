@@ -186,6 +186,6 @@ elif [[ ${SERVERCHAN_SCKEY} == "true" ]]; then
 	echo "微信通知: 开启"
 fi
 if [[ REGULAR_UPDATE="false" ]]; then
-	echo "把定时自动更新编译进固件: 关闭"
+	echo "把定时自动更新插件编译进固件: 关闭"
 fi
 }
