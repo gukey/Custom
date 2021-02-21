@@ -10,29 +10,16 @@ GET_TARGET_INFO() {
 	else
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 	fi
-        
-if [[ "${REPO_URL" == "https://github.com/coolsnowwolf/lede" ]]; then
-  if [[ "${DEVICEC}" == "x86" ]]; then
-    Up_Firmware="squashfs-combined.img.gz"
-  fi
-fi
-if [[ "${REPO_URL" == "https://github.com/Lienol/openwrt" ]]; then
-  if [[ "${DEVICEC}" == "x86" ]]; then
-    Up_Firmware="combined-squashfs.img.gz"
-  fi
-fi
-if [[ "${REPO_URL" == "https://github.com/immortalwrt/immortalwrt" ]]; then
-  if [[ "${DEVICEC}" == "x86" ]]; then
-    Up_Firmware="combined-squashfs.img.gz"
-  fi
-fi
 	if [[ "${DEVICEC}" == "x86" ]]; then
 		Firmware_sfx=".img.gz"
 	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
+		Up_Firmware="phicomm-k3-squashfs.trx"
 		Firmware_sfx=".trx"
 	elif [[ "${TARGET_PROFILE}" == "d-team_newifi-d2" ]]; then
+		Up_Firmware="d-team_newifi-d2-squashfs-sysupgrade.bin"
 		Firmware_sfx=".bin"
 	else
+		Up_Firmware="${Updete_firmware}"
 		Firmware_sfx="${Extension}"
 	fi
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
@@ -112,7 +99,7 @@ Diy_Part2() {
 
 Diy_Part3() {
 	GET_TARGET_INFO
-	Default_Firmware="${Updete_firmware}"
+	Default_Firmware="${Up_Firmware}"
 	AutoBuild_Firmware="openwrt-${Source}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}${Firmware_sfx}"
 	AutoBuild_Detail="openwrt-${Source}-${TARGET_PROFILE}-Firmware-${Openwrt_Version}.detail"
 	Mkdir bin/Firmware
