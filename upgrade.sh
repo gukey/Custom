@@ -10,11 +10,17 @@ GET_TARGET_INFO() {
 	else
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 	fi
-        if [[ "$DEVICEC" == "x86" ]]; then
+        
+        if [[ "${REPO_URL" == "https://github.com/coolsnowwolf/lede" ]]; then
+		if [[ "${DEVICEC}" == "x86" ]]; then
+			Up_Firmware="squashfs-combined.img.gz"
+		fi
+	fi
+	if [[ "${DEVICEC}" == "x86" ]]; then
 		Firmware_sfx=".img.gz"
-	elif [[ "$TARGET_PROFILE" == "phicomm-k3" ]]; then
+	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
 		Firmware_sfx=".trx"
-	elif [[ "$TARGET_PROFILE" == "d-team_newifi-d2" ]]; then
+	elif [[ "${TARGET_PROFILE}" == "d-team_newifi-d2" ]]; then
 		Firmware_sfx=".bin"
 	else
 		Firmware_sfx="${Extension}"
