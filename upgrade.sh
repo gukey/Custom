@@ -54,7 +54,7 @@ Diy_Part2() {
 	echo "源码分支: ${REPO_BRANCH}"
 	echo "源码作者: ${ZUOZHE}"
 	echo "机子型号: ${TARGET_PROFILE}"
-	echo "安装需要的固件名称: ${Updete_firmware}"
+	echo "安装需要的固件名称: ${Up_Firmware}"
 	echo "安装需要的固件后缀: ${Firmware_sfx}"
 	echo "自动更新固件版本: Firmware-${Openwrt_Version}"
 	echo "固件作者: ${Author}"
