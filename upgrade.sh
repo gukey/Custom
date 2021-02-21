@@ -84,9 +84,6 @@ Diy_Part2() {
 	elif [[ ${UPLOAD_RELEASE} == "true" ]]; then
 		echo "发布固件: 开启"
 	fi
-	if [[ github.event.inputs.release == "release" ]]; then
-		echo "发布固件: 开启"
-	fi
 	if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
 		echo "微信通知: 关闭"
 	elif [[ ${SERVERCHAN_SCKEY} == "true" ]]; then
