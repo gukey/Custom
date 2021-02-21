@@ -77,50 +77,6 @@ Diy_Part2() {
 	echo "${Source}" >> package/base-files/files/etc/openwrt_info
 }
 
-Diy_Part02() {
-	echo "编译源码: ${Source}"
-	echo "源码作者: ${ZUOZHE}"
-	echo "机子型号: ${TARGET_PROFILE}"
-	echo "仓库链接: ${Github_Repo1}"
-	echo "固件作者: ${Author}"
-	echo "固件版本: Firmware-${Openwrt_Version}"
-        if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
-		echo "上传BIN文件夹: 关闭"
-	elif [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
-		echo "上传BIN文件夹: 开启"
-	fi
-        if [[ ${UPLOAD_CONFIG} == "false" ]]; then
-		echo "上传配置文件: 关闭"
-	elif [[ ${UPLOAD_CONFIG} == "true" ]]; then
-		echo "上传配置文件: 开启"
-	fi
-        if [[ ${UPLOAD_FIRMWARE} == "false" ]]; then
-		echo "上传固件: 关闭"
-	elif [[ ${UPLOAD_FIRMWARE} == "true" ]]; then
-		echo "上传固件: 开启"
-	fi
-        if [[ ${UPLOAD_COWTRANSFER} == "false" ]]; then
-		echo "上传固件到到【奶牛快传】和【WETRANSFER】: 关闭"
-	elif [[ ${UPLOAD_COWTRANSFER} == "true" ]]; then
-		echo "上传固件到到【奶牛快传】和【WETRANSFER】: 开启"
-	fi
-        if [[ ${UPLOAD_RELEASE} == "false" ]]; then
-		echo "发布固件: 关闭"
-	elif [[ ${UPLOAD_RELEASE} == "true" ]]; then
-		echo "发布固件: 开启"
-	fi
-        if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
-		echo "微信通知: 关闭"
-	elif [[ ${SERVERCHAN_SCKEY} == "true" ]]; then
-		echo "微信通知: 开启"
-	fi
-        if [[ ${REGULAR_UPDATE} == "false" ]]; then
-		echo "把定时自动更新编译进固件: 关闭"
-	elif [[ ${REGULAR_UPDATE} == "true" ]]; then
-		echo "把定时自动更新编译进固件: 开启"
-	fi
-}
-
 Diy_Part3() {
 	GET_TARGET_INFO
 	Default_Firmware="${Updete_firmware}"
