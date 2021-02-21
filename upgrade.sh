@@ -79,9 +79,9 @@ Diy_Part2() {
 	fi
 	if [[ ${REGULAR_UPDATE} == "true" ]]; then
 		echo "编译定时更新插件: 开启"
-		echo "把定时自动更新插件编译进固件已开启"
-		echo "请把“REPO_TOKEN”密匙设置好,没设置好密匙不能发布云端地址"
-		echo "请注意核对固件名字和后缀,避免编译错误"
+		echo "《把定时自动更新插件编译进固件已开启》"
+		echo "《请把“REPO_TOKEN”密匙设置好,没设置好密匙不能发布云端地址》"
+		echo "《请注意核对固件名字和后缀,避免编译错误》"
 	fi
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
