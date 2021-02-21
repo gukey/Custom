@@ -9,6 +9,11 @@ GET_TARGET_INFO() {
 		Firmware_sfx=".img.gz"
 	elif [[ "$DEVICE" != "x86" ]]; then
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+	elif [[ "$TARGET_PROFILE" == "phicomm-k3" ]]; then
+		Firmware_sfx=".trx"
+	elif [[ "$TARGET_PROFILE" == "d-team_newifi-d2" ]]; then
+		Firmware_sfx=".bin"
+	else
 		Firmware_sfx="${Extension}"
 	fi
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
