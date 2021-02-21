@@ -2,6 +2,7 @@ GET_TARGET_INFO() {
 	[ -f ${GITHUB_WORKSPACE}/Openwrt.info ] && . ${GITHUB_WORKSPACE}/Openwrt.info
 	Openwrt_Version="${Compile_Date}"
 	Author="${Author}"
+	Source="${Source}"
 	DEVICEC="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
         SUBTARGETE="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
         if [[ "$DEVICEC" == "x86" ]]; then
