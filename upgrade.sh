@@ -84,7 +84,7 @@ Diy_Part2() {
 	elif [[ ${UPLOAD_RELEASE} == "true" ]]; then
 		echo "发布固件: 开启"
 	fi
-	if [[ github.event.inputs.release == 'release' ]]; then
+	if [[ github.event.inputs.release == "release" ]]; then
 		echo "发布固件: 开启"
 	fi
 	if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
