@@ -167,21 +167,21 @@ echo "源码分支: ${REPO_BRANCH}"
 echo "源码作者: ${ZUOZHE}"
 echo "机子型号: ${TARGET_PROFILE}"
 echo "固件作者: ${Author}"
-echo "仓库链接: ${GITHUB_RELEASE}/releases"
+echo "仓库链接: ${GITHUB_RELEASE}"
 if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
-	echo "上传BIN文件夹: 关闭"
+	echo "上传BIN文件夹(固件+IPK): 关闭"
 elif [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
-	echo "上传BIN文件夹: 开启"
+	echo "上传BIN文件夹(固件+IPK): 开启"
 fi
 if [[ ${UPLOAD_CONFIG} == "false" ]]; then
-	echo "上传配置文件: 关闭"
+	echo "上传[.config]配置文件: 关闭"
 elif [[ ${UPLOAD_CONFIG} == "true" ]]; then
-	echo "上传配置文件: 开启"
+	echo "上传[.config]配置文件: 开启"
 fi
 if [[ ${UPLOAD_FIRMWARE} == "false" ]]; then
-	echo "上传固件: 关闭"
+	echo "上传固件在github空间: 关闭"
 elif [[ ${UPLOAD_FIRMWARE} == "true" ]]; then
-	echo "上传固件: 开启"
+	echo "上传固件在github空间: 开启"
 fi
 if [[ ${UPLOAD_COWTRANSFER} == "false" ]]; then
 	echo "上传固件到到【奶牛快传】和【WETRANSFER】: 关闭"
