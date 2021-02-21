@@ -6,9 +6,11 @@ GET_TARGET_INFO() {
         SUBTARGET="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
         if [[ "$DEVICE" == "x86" ]]; then
 		TARGET_PROFILE="x86-${SUBTARGET}"
-		Firmware_sfx=".img.gz"
 	elif [[ "$DEVICE" != "x86" ]]; then
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+	fi
+        if [[ "$DEVICE" == "x86" ]]; then
+		Firmware_sfx=".img.gz"
 	elif [[ "$TARGET_PROFILE" == "phicomm-k3" ]]; then
 		Firmware_sfx=".trx"
 	elif [[ "$TARGET_PROFILE" == "d-team_newifi-d2" ]]; then
@@ -33,6 +35,7 @@ Diy_Part2() {
 	GET_TARGET_INFO
 	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
 	[[ -z "${Author}" ]] && Author="Unknown"
+	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="Unknown"
 	echo "插件版本: ${AutoUpdate_Version}"
 	echo "编译源码: ${Source}"
 	echo "源码链接: ${REPO_URL}"
