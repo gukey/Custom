@@ -26,17 +26,17 @@ GET_TARGET_INFO() {
 Diy_Part1() {
         GET_TARGET_INFO
 	if [[ "$DEVICEC" == "x86" ]]; then
-	sed -i '/luci-app-autoupdate/d' .config > /dev/null 2>&1
-	echo -e "\nCONFIG_PACKAGE_luci-app-autoupdate=y" >> .config
-	sed -i '/luci-app-ttyd/d' .config > /dev/null 2>&1
-	echo -e "\nCONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-	sed -i '/IMAGES_GZIP/d' .config > /dev/null 2>&1
-	echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> .config
+		sed -i '/luci-app-autoupdate/d' .config > /dev/null 2>&1
+		echo -e "\nCONFIG_PACKAGE_luci-app-autoupdate=y" >> .config
+		sed -i '/luci-app-ttyd/d' .config > /dev/null 2>&1
+		echo -e "\nCONFIG_PACKAGE_luci-app-ttyd=y" >> .config
+		sed -i '/IMAGES_GZIP/d' .config > /dev/null 2>&1
+		echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> .config
 	else
-	sed -i '/luci-app-autoupdate/d' .config > /dev/null 2>&1
-	echo -e "\nCONFIG_PACKAGE_luci-app-autoupdate=y" >> .config
-	sed -i '/luci-app-ttyd/d' .config > /dev/null 2>&1
-	echo -e "\nCONFIG_PACKAGE_luci-app-ttyd=y" >> .config
+		sed -i '/luci-app-autoupdate/d' .config > /dev/null 2>&1
+		echo -e "\nCONFIG_PACKAGE_luci-app-autoupdate=y" >> .config
+		sed -i '/luci-app-ttyd/d' .config > /dev/null 2>&1
+		echo -e "\nCONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 	fi
 }
 
