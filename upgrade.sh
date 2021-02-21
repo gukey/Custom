@@ -2,7 +2,13 @@ GET_TARGET_INFO() {
 	[ -f ${GITHUB_WORKSPACE}/Openwrt.info ] && . ${GITHUB_WORKSPACE}/Openwrt.info
 	Openwrt_Version="${Compile_Date}"
 	Author="${Author}"
-	TARGET_PROFILE="${NAME1}"
+	DEVICE=$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)
+        SUBTARGET="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
+        if [[ "$DEVICE" == "x86" ]]; then
+		TARGET_PROFILE="x86-${SUBTARGET}"
+	else
+		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+	fi
         if [[ "$DEVICE" == "x86" ]]; then
 		Firmware_sfx=".img.gz"
 	elif [[ "$TARGET_PROFILE" == "phicomm-k3" ]]; then
