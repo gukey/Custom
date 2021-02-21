@@ -164,7 +164,7 @@ GET_TARGET
 echo "编译源码: ${Source}"
 echo "源码作者: ${ZUOZHE}"
 echo "机子型号: ${TARGET_PROFILE}"
-echo "仓库链接: ${Github_Repo1}"
+echo "仓库链接: ${Github_Rep}"
 echo "固件作者: ${Author}"
 if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
 	echo "上传BIN文件夹: 关闭"
