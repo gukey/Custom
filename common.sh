@@ -1,16 +1,4 @@
 # 机型文件=${Modelfile}
-GET_TARGET() {
-DEVICE=$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)
-SUBTARGET="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
-if [[ "$DEVICE" == "x86" ]]; then
-	TARGET_PROFILE="x86-${SUBTARGET}"
-elif [[ ${Modelfile} =~ (Lede_phicomm_n1|Project_phicomm_n1) ]]; then
-	TARGET_PROFILE="n1,Vplus,Beikeyun,L1Pro,S9xxx"
-elif [[ "$DEVICE" != "x86" ]]; then
-	TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
-fi
-Github_Repo1="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
-}
 
 # 全脚本源码通用diy.sh文件
 
@@ -160,12 +148,11 @@ echo "#"
 
 
 Diy_xinxi() {
-GET_TARGET
 echo "编译源码: ${Source}"
 echo "源码链接: ${REPO_URL}"
 echo "源码分支: ${REPO_BRANCH}"
 echo "源码作者: ${ZUOZHE}"
-echo "机子型号: ${TARGET_PROFILE}"
+echo "机子型号: ${NAME1}"
 echo "固件作者: ${Author}"
 echo "仓库链接: ${GITHUB_RELEASE}"
 if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
