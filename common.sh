@@ -1,4 +1,14 @@
 # 机型文件=${Modelfile}
+GET_TARGET() {
+DEVICE=$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)
+SUBTARGET="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
+if [[ "$DEVICE" == "x86" ]]; then
+         TARGET_PROFILE="x86-${SUBTARGET}"
+elif [[ "$DEVICE" != "x86" ]]; then
+         TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+fi
+Github_Repo1="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
+}
 
 # 全脚本源码通用diy.sh文件
 
@@ -144,4 +154,49 @@ echo "《公告内容》"
 echo "祝大家新年快乐、生活愉快！"
 echo "使用中有疑问的可以加入电报群，跟群友交流"
 echo "#"
+}
+
+
+Diy_xinxi() {
+GET_TARGET
+echo "编译源码: ${Source}"
+echo "源码作者: ${ZUOZHE}"
+echo "机子型号: ${TARGET_PROFILE}"
+echo "仓库链接: ${Github_Repo1}"
+echo "固件作者: ${Author}"
+if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
+	echo "上传BIN文件夹: 关闭"
+elif [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
+	echo "上传BIN文件夹: 开启"
+fi
+if [[ ${UPLOAD_CONFIG} == "false" ]]; then
+	echo "上传配置文件: 关闭"
+elif [[ ${UPLOAD_CONFIG} == "true" ]]; then
+	echo "上传配置文件: 开启"
+fi
+if [[ ${UPLOAD_FIRMWARE} == "false" ]]; then
+	echo "上传固件: 关闭"
+elif [[ ${UPLOAD_FIRMWARE} == "true" ]]; then
+	echo "上传固件: 开启"
+fi
+if [[ ${UPLOAD_COWTRANSFER} == "false" ]]; then
+	echo "上传固件到到【奶牛快传】和【WETRANSFER】: 关闭"
+elif [[ ${UPLOAD_COWTRANSFER} == "true" ]]; then
+	echo "上传固件到到【奶牛快传】和【WETRANSFER】: 开启"
+fi
+if [[ ${UPLOAD_RELEASE} == "false" ]]; then
+	echo "发布固件: 关闭"
+elif [[ ${UPLOAD_RELEASE} == "true" ]]; then
+	echo "发布固件: 开启"
+fi
+if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
+	echo "微信通知: 关闭"
+elif [[ ${SERVERCHAN_SCKEY} == "true" ]]; then
+	echo "微信通知: 开启"
+fi
+if [[ ${REGULAR_UPDATE} == "false" ]]; then
+	echo "把定时自动更新编译进固件: 关闭"
+elif [[ ${REGULAR_UPDATE} == "true" ]]; then
+	echo "把定时自动更新编译进固件: 开启"
+fi
 }
