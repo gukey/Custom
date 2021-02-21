@@ -72,6 +72,7 @@ Diy_Part2() {
 		echo "微信通知: 开启"
 	fi
 	if [[ ${REGULAR_UPDATE} == "true" ]]; then
+		echo "定时更新: 开启"
 		echo "把定时自动更新编译进固件已开启"
 		echo "请把“REPO_TOKEN”密匙设置好,没设置好密匙不能发布云端地址"
 		echo "请注意核对固件名字和后缀,避免编译错误"
