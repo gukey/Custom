@@ -74,7 +74,6 @@ Diy_Part2() {
 		echo "请把“REPO_TOKEN”密匙设置好,没设置好密匙不能发布云端地址"
 		echo "请注意核对固件名字和后缀,避免编译错误"
 	fi
-}
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
 	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
