@@ -163,9 +163,11 @@ Diy_xinxi() {
 GET_TARGET
 echo "编译源码: ${Source}"
 echo "源码作者: ${ZUOZHE}"
+echo "源码链接: ${REPO_URL}"
+echo "源码分支: ${REPO_BRANCH}"
 echo "机子型号: ${TARGET_PROFILE}"
-echo "仓库链接: ${Github_R}"
 echo "固件作者: ${Author}"
+echo "仓库链接: ${GITHUB_RELEASE}/releases"
 if [[ ${UPLOAD_BIN_DIR} == "false" ]]; then
 	echo "上传BIN文件夹: 关闭"
 elif [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
