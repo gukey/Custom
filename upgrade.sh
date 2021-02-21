@@ -5,17 +5,27 @@ GET_TARGET_INFO() {
 	Source="${Source}"
 	DEVICEC="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
         SUBTARGETE="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
-        if [[ "$DEVICEC" == "x86" ]]; then
+        if [[ "${DEVICEC}" == "x86" ]]; then
 		TARGET_PROFILE="x86-${SUBTARGETE}"
 	else
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 	fi
         
         if [[ "${REPO_URL" == "https://github.com/coolsnowwolf/lede" ]]; then
-		if [[ "${DEVICEC}" == "x86" ]]; then
-			Up_Firmware="squashfs-combined.img.gz"
-		fi
-	fi
+	  if [[ "${DEVICEC}" == "x86" ]]; then
+	    Up_Firmware="squashfs-combined.img.gz"
+	   fi
+        fi
+        if [[ "${REPO_URL" == "https://github.com/Lienol/openwrt" ]]; then
+	  if [[ "${DEVICEC}" == "x86" ]]; then
+	    Up_Firmware="combined-squashfs.img.gz"
+	   fi
+        fi
+        if [[ "${REPO_URL" == "https://github.com/immortalwrt/immortalwrt" ]]; then
+	  if [[ "${DEVICEC}" == "x86" ]]; then
+	    Up_Firmware="combined-squashfs.img.gz"
+	   fi
+        fi
 	if [[ "${DEVICEC}" == "x86" ]]; then
 		Firmware_sfx=".img.gz"
 	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
