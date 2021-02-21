@@ -187,13 +187,12 @@ if [[ ${UPLOAD_COWTRANSFER} == "false" ]]; then
 elif [[ ${UPLOAD_COWTRANSFER} == "true" ]]; then
 	echo "上传固件到到【奶牛快传】和【WETRANSFER】: 开启"
 fi
-if [[ ${UPLOAD_RELEASE} == "false" ]]; then
+if [[ ${UPLOAD_RELEASE} == "true" ]]; then
+	echo "发布固件: 开启"
+elif [[ github.event.inputs.release == 'release' ]]; then
+	echo "发布固件: 开启"
+else
 	echo "发布固件: 关闭"
-elif [[ ${UPLOAD_RELEASE} == "true" ]]; then
-	echo "发布固件: 开启"
-fi
-if [[ github.event.inputs.release == 'release' ]]; then
-	echo "发布固件: 开启"
 fi
 if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
 	echo "微信通知: 关闭"
