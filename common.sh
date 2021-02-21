@@ -3,9 +3,11 @@ GET_TARGET() {
 DEVICE=$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)
 SUBTARGET="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
 if [[ "$DEVICE" == "x86" ]]; then
-         TARGET_PROFILE="x86-${SUBTARGET}"
+	TARGET_PROFILE="x86-${SUBTARGET}"
+elif [[ ${Modelfile} =~ (Lede_phicomm_n1|Project_phicomm_n1) ]]; then
+	TARGET_PROFILE="n1,Vplus,Beikeyun,L1Pro,S9xxx"
 elif [[ "$DEVICE" != "x86" ]]; then
-         TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+	TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 fi
 Github_Repo1="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
 }
