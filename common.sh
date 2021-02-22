@@ -196,9 +196,9 @@ if [[ ${SERVERCHAN_SCKEY} == "false" ]]; then
 elif [[ ${SERVERCHAN_SCKEY} == "true" ]]; then
 	echo "微信通知: 开启"
 fi
-if [[ ${REGULAR_UPDATE} == "true"" ]]; then
+if [[ ${REGULAR_UPDATE} == "true" ]]; then
 	echo "把定时自动更新插件编译进固件: 开启"
-else
+else	
 	echo "把定时自动更新插件编译进固件: 关闭"
 fi
 }
