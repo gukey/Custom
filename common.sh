@@ -4,6 +4,8 @@
 
 Diy_all() {
 echo "all"
+mv openwrt/common/{AutoUpdate.sh,AutoBuild_Tools.sh} openwrt/package/base-files/files/bin
+chmod +x package/base-files/files/bin/* ./
 }
 
 # 全脚本源码通用diy2.sh文件
@@ -30,8 +32,6 @@ echo "LEDE源码自定义1"
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 
 git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
-svn co https://github.com/281677160/openwrt-package/branches/usb/AutoUpdate package/base-files/files/bin
-chmod +x package/base-files/files/bin/* ./
 
 git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
 git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app-passwall
