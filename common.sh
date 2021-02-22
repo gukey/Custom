@@ -48,8 +48,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
-sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' ./package/lean/default-settings/files/zzz-default-settings
-sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' ./package/lean/default-settings/files/zzz-default-settings
+curl -fsSL  https://raw.githubusercontent.com/281677160/openwrt-package/usb/common/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 }
 
 ################################################################################################################
@@ -85,8 +84,6 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lienol2() {
 echo "LIENOL源码自定义2"
-sed -i '$i '"sed -i 's/(ver.distversion)%>/(ver.distversion)%> <\!--/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' ./package/default-settings/files/zzz-default-settings
-sed -i '$i '"sed -i 's/(ver.luciversion)%>)/(ver.luciversion)%>) \!-->/g' /usr/lib/lua/luci/view/admin_status/index.htm"'' ./package/default-settings/files/zzz-default-settings
 }
 
 ################################################################################################################
