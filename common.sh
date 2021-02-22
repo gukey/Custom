@@ -4,7 +4,7 @@
 
 Diy_all() {
 echo "all"
-mv openwrt/common/{AutoUpdate.sh,AutoBuild_Tools.sh} openwrt/package/base-files/files/bin
+mv common/{AutoUpdate.sh,AutoBuild_Tools.sh} package/base-files/files/bin
 chmod +x package/base-files/files/bin/* ./
 }
 
