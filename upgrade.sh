@@ -12,7 +12,7 @@ GET_TARGET_INFO() {
 	fi
 	if [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
 		Up_Firmware="phicomm-k3-squashfs.trx"
-	elif [[ "${TARGET_PROFILE}" =~ (phicomm-k3|d-team_newifi-d2) ]]; then
+	elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
 		Up_Firmware="${TARGET_PROFILE}-squashfs-sysupgrade.bin"
 	else
 		Up_Firmware="${Updete_firmware}"
@@ -21,7 +21,7 @@ GET_TARGET_INFO() {
 		Firmware_sfx=".img.gz"
 	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
 		Firmware_sfx=".trx"
-	elif [[ "${TARGET_PROFILE}" =~ (phicomm-k3|d-team_newifi-d2) ]]; then
+	elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
 		Firmware_sfx=".bin"
 	else
 		Firmware_sfx="${Extension}"
