@@ -158,7 +158,7 @@ elif [[ ${Modelfile} =~ (Lede_phicomm_n1|Project_phicomm_n1) ]]; then
 else
 	TARGET_PRO="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 fi
-[[ -z "${TARGET_PRO}" ]] && TARGET_PRO="无法获取机型"
+[[ -z "${TARGET_PRO}" ]] && TARGET_PRO="Unknown"
 echo "编译源码: ${Source}"
 echo "源码链接: ${REPO_URL}"
 echo "源码分支: ${REPO_BRANCH}"
