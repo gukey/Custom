@@ -48,7 +48,6 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 Diy_lede2() {
 echo "LEDE源码自定义2"
-curl -fsSL  https://raw.githubusercontent.com/281677160/openwrt-package/usb/common/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 }
 
 ################################################################################################################
