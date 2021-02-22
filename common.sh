@@ -185,7 +185,7 @@ elif [[ ${UPLOAD_COWTRANSFER} == "true" ]]; then
 fi
 if [[ ${UPLOAD_RELEASE} == "true" ]]; then
 	echo "发布固件: 开启"
-elif [[ github.event.inputs.release == default: 'release' ]]; then
+elif [[ ${github.event.inputs.release} == "release" ]]; then
 	echo "发布固件: 开启"
 else
 	echo "发布固件: 关闭"
