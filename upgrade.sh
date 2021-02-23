@@ -79,7 +79,6 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
-	echo "插件版本: ${AutoUpdate_Version}"
 	echo "编译源码: ${Source}"
 	echo "源码链接: ${REPO_URL}"
 	echo "源码分支: ${REPO_BRANCH}"
