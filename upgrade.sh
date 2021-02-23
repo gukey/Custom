@@ -17,7 +17,6 @@ GET_TARGET_INFO() {
 	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="Unknown"
 	
 	if [[ "${REPO_URL}" == "https://github.com/coolsnowwolf/lede" ]];then
-		Lede_Version="18.06"
 		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
 			Up_Firmware="openwrt-x86-64-generic-squashfs-combined.img.gz"
 			Firmware_sfx=".img.gz"
@@ -34,7 +33,6 @@ GET_TARGET_INFO() {
 	fi
         
 	if [[ "${REPO_URL}" == "https://github.com/Lienol/openwrt" ]];then
-		Lede_Version="19.07"
 		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
 			Up_Firmware="openwrt-x86-64-combined-squashfs.img.gz"
 			Firmware_sfx=".img.gz"
@@ -51,7 +49,6 @@ GET_TARGET_INFO() {
 	fi
 	
         if [[ "${REPO_URL}" == "https://github.com/immortalwrt/immortalwrt" ]];then
-		Lede_Version="18.06"
 		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
 			Up_Firmware="immortalwrt-x86-64-combined-squashfs.img.gz"
 			Firmware_sfx=".img.gz"
