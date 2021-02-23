@@ -1,38 +1,71 @@
 GET_TARGET_INFO() {
 	[ -f ${GITHUB_WORKSPACE}/Openwrt.info ] && . ${GITHUB_WORKSPACE}/Openwrt.info
-	Openwrt_Version="${Compile_Date}"
-	Author="${Author}"
-	Source="${Source}"
-	TARGET_BOARD="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
-	TARGET_SUBTARGET="-$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
-        if [[ "${TARGET_BOARD}" == "x86" ]]; then
-		TARGET_PROFILE="x86${SUBTARGETE}"
-	else
-		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
-	fi
-        if [[ "${REPO_URL}" == "https://github.com/immortalwrt/immortalwrt" ]];then
-		openwrt="immortalwrt"
-	else
-		openwrt="openwrt"
-	fi
-	if [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
-		Up_Firmware="${openwrt}-${TARGET_BOARD}${TARGET_SUBTARGET}-${TARGET_PROFILE}-squashfs.trx"
-	elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
-		Up_Firmware="${openwrt}-${TARGET_BOARD}${TARGET_SUBTARGET}-${TARGET_PROFILE}-squashfs-sysupgrade.bin"
-	else
-		Up_Firmware="${Updete_firmware}"
-	fi
-	if [[ "${DEVICEC}" == "x86" ]]; then
-		Firmware_sfx=".img.gz"
-	elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
-		Firmware_sfx=".trx"
-	elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
-		Firmware_sfx=".bin"
-	else
-		Firmware_sfx="${Extension}"
-	fi
+	AutoBuild_Info=${GITHUB_WORKSPACE}/openwrt/package/base-files/files/etc/openwrt_info
 	Github_Repo="$(grep "https://github.com/[a-zA-Z0-9]" ${GITHUB_WORKSPACE}/.git/config | cut -c8-100)"
-	AutoUpdate_Version="$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')"
+	Openwrt_Version="${Compile_Date}"
+	AutoUpdate_Version=$(awk 'NR==6' package/base-files/files/bin/AutoUpdate.sh | awk -F '[="]+' '/Version/{print $2}')
+	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
+	[[ -z "${Author}" ]] && Author="Unknown"
+	TARGET1="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
+	TARGET2="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
+	TARGET3="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
+        if [[ "${TARGET1}" == "x86" ]]; then
+		TARGET_PROFILE="x86-64"
+	else
+		TARGET_PROFILE="${TARGET3}"
+	fi
+	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="Unknown"
+	
+	if [[ "${REPO_URL}" == "https://github.com/coolsnowwolf/lede" ]];then
+		Lede_Version="18.06"
+		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
+			Up_Firmware="openwrt-x86-64-generic-squashfs-combined.img.gz"
+			Firmware_sfx=".img.gz"
+		elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
+			Up_Firmware="openwrt-bcm53xx-generic-phicomm-k3-squashfs.trx"
+			Firmware_sfx=".trx"
+		elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
+			Up_Firmware="openwrt-${TARGET1}-${TARGET2}-${TARGET3}-squashfs-sysupgrade.bin"
+			Firmware_sfx=".bin"
+		else
+			Up_Firmware="${Updete_firmware}"
+			Firmware_sfx="${Extension}"
+		fi
+	fi
+        
+	if [[ "${REPO_URL}" == "https://github.com/Lienol/openwrt" ]];then
+		Lede_Version="19.07"
+		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
+			Up_Firmware="openwrt-x86-64-combined-squashfs.img.gz"
+			Firmware_sfx=".img.gz"
+		elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
+			Up_Firmware="openwrt-bcm53xx-phicomm-k3-squashfs.trx"
+			Firmware_sfx=".trx"
+		elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
+			Up_Firmware="openwrt-${TARGET1}-${TARGET2}-${TARGET3}-squashfs-sysupgrade.bin"
+			Firmware_sfx=".bin"
+		else
+			Up_Firmware="${Updete_firmware}"
+			Firmware_sfx="${Extension}"
+		fi
+	fi
+	
+        if [[ "${REPO_URL}" == "https://github.com/immortalwrt/immortalwrt" ]];then
+		Lede_Version="18.06"
+		if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
+			Up_Firmware="immortalwrt-x86-64-combined-squashfs.img.gz"
+			Firmware_sfx=".img.gz"
+		elif [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
+			Up_Firmware="immortalwrt-bcm53xx-phicomm-k3-squashfs.trx"
+			Firmware_sfx=".trx"
+		elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
+			Up_Firmware="immortalwrt-${TARGET1}-${TARGET2}-${TARGET3}-squashfs-sysupgrade.bin"
+			Firmware_sfx=".bin"
+		else
+			Up_Firmware="${Updete_firmware}"
+			Firmware_sfx="${Extension}"
+		fi
+	fi
 }
 
 Diy_Part1() {
@@ -46,9 +79,6 @@ Diy_Part1() {
 
 Diy_Part2() {
 	GET_TARGET_INFO
-	[[ -z "${AutoUpdate_Version}" ]] && AutoUpdate_Version="Unknown"
-	[[ -z "${Author}" ]] && Author="Unknown"
-	[[ -z "${TARGET_PROFILE}" ]] && TARGET_PROFILE="Unknown"
 	echo "插件版本: ${AutoUpdate_Version}"
 	echo "编译源码: ${Source}"
 	echo "源码链接: ${REPO_URL}"
@@ -95,6 +125,7 @@ Diy_Part2() {
 		echo "《把定时自动更新插件编译进固件已开启》"
 		echo "《请把“REPO_TOKEN”密匙设置好,没设置好密匙不能发布云端地址》"
 		echo "《请注意核对固件名字和后缀,避免编译错误》"
+		echo "《x86-64、phicomm-k3、newifi-d2已自动适配固件名字跟后缀，无需自行设置了》"
 	fi
 	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
 	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
