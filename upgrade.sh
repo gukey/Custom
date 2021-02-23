@@ -126,10 +126,10 @@ Diy_Part2() {
 		echo "《请注意核对固件名字和后缀,避免编译错误》"
 		echo "《x86-64、phicomm-k3、newifi-d2已自动适配固件名字跟后缀，无需自行设置了》"
 	fi
-	echo "Firmware-${Openwrt_Version}" > package/base-files/files/etc/openwrt_info
-	echo "${Github_Repo}" >> package/base-files/files/etc/openwrt_info
-	echo "${TARGET_PROFILE}" >> package/base-files/files/etc/openwrt_info
-	echo "${Source}" >> package/base-files/files/etc/openwrt_info
+	echo "Firmware-${Openwrt_Version}" > ${AutoBuild_Info}
+	echo "${Github_Repo}" >> ${AutoBuild_Info}
+	echo "${TARGET_PROFILE}" >> ${AutoBuild_Info}
+	echo "${Source}" >> ${AutoBuild_Info}
 }
 
 Diy_Part3() {
