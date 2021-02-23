@@ -3,17 +3,22 @@ GET_TARGET_INFO() {
 	Openwrt_Version="${Compile_Date}"
 	Author="${Author}"
 	Source="${Source}"
-	DEVICEC="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
-        SUBTARGETE="$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
-        if [[ "${DEVICEC}" == "x86" ]]; then
-		TARGET_PROFILE="x86-${SUBTARGETE}"
+	TARGET_BOARD="$(awk -F '[="]+' '/TARGET_BOARD/{print $2}' .config)"
+	TARGET_SUBTARGET="-$(awk -F '[="]+' '/TARGET_SUBTARGET/{print $2}' .config)"
+        if [[ "${TARGET_BOARD}" == "x86" ]]; then
+		TARGET_PROFILE="x86${SUBTARGETE}"
 	else
 		TARGET_PROFILE="$(egrep -o "CONFIG_TARGET.*DEVICE.*=y" .config | sed -r 's/.*DEVICE_(.*)=y/\1/')"
 	fi
+        if [[ "${REPO_URL}" == "https://github.com/immortalwrt/immortalwrt" ]];then
+		openwrt="immortalwrt"
+	else
+		openwrt="openwrt"
+	fi
 	if [[ "${TARGET_PROFILE}" == "phicomm-k3" ]]; then
-		Up_Firmware="phicomm-k3-squashfs.trx"
+		Up_Firmware="${openwrt}-${TARGET_BOARD}${TARGET_SUBTARGET}-${TARGET_PROFILE}-squashfs.trx"
 	elif [[ "${TARGET_PROFILE}" =~ (xiaomi_mir3g|d-team_newifi-d2) ]]; then
-		Up_Firmware="${TARGET_PROFILE}-squashfs-sysupgrade.bin"
+		Up_Firmware="${openwrt}-${TARGET_BOARD}${TARGET_SUBTARGET}-${TARGET_PROFILE}-squashfs-sysupgrade.bin"
 	else
 		Up_Firmware="${Updete_firmware}"
 	fi
